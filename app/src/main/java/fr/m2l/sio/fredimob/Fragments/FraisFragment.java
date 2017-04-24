@@ -29,7 +29,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class FraisFragment extends Fragment implements View.OnClickListener{
 
     private AppCompatButton btn_register;
-    private EditText et_motif, et_trajet,et_trajetKM,et_trajetPeage, et_repas, et_heberg;
+    private EditText et_trajet, et_km ,et_peage, et_repas, et_heberg, et_motif, et_cout;
     private ProgressBar progress;
 
     @Override
@@ -44,12 +44,13 @@ public class FraisFragment extends Fragment implements View.OnClickListener{
 
         btn_register = (AppCompatButton)view.findViewById(R.id.btn_register);
 
-        et_motif = (EditText) view.findViewById(R.id.et_motif);
         et_trajet = (EditText) view.findViewById(R.id.et_trajet);
-        et_trajetKM = (EditText)view.findViewById(R.id.et_trajetKM);
-        et_trajetPeage = (EditText)view.findViewById(R.id.et_trajetPeage);
+        et_km = (EditText)view.findViewById(R.id.et_km);
+        et_peage = (EditText)view.findViewById(R.id.et_peage);
         et_repas = (EditText)view.findViewById(R.id.et_repas);
         et_heberg = (EditText)view.findViewById(R.id.et_heberg);
+        et_motif = (EditText) view.findViewById(R.id.et_motif);
+        et_cout = (EditText) view.findViewById(R.id.et_cout);
 
         progress = (ProgressBar)view.findViewById(R.id.progress);
 
@@ -64,17 +65,19 @@ public class FraisFragment extends Fragment implements View.OnClickListener{
 
             case R.id.btn_register:
 
-                String motif = et_motif.getText().toString();
+
                 String trajet = et_trajet.getText().toString();
-                String trajetKM = et_trajetKM.getText().toString();
-                String trajetPeage = et_trajetPeage.getText().toString();
+                String km = et_km.getText().toString();
+                String peage = et_peage.getText().toString();
                 String repas = et_repas.getText().toString();
                 String heberg = et_heberg.getText().toString();
+                String motif = et_motif.getText().toString();
+                String cout = et_cout.getText().toString();
 
-                if(!motif.isEmpty() && !trajet.isEmpty() && !trajetKM.isEmpty() && !trajetPeage.isEmpty() && !repas.isEmpty() && !heberg.isEmpty()) {
+                if(!trajet.isEmpty() && !km.isEmpty() && !peage.isEmpty() && !repas.isEmpty() && !heberg.isEmpty() && !motif.isEmpty() && !cout.isEmpty()) {
 
                     progress.setVisibility(View.VISIBLE);
-                    registerFraisProcess(motif, trajet,trajetKM,trajetPeage, repas, heberg);
+                    registerFrais(trajet, km, peage, repas, heberg, motif, cout);
 
                 } else {
 
@@ -86,7 +89,7 @@ public class FraisFragment extends Fragment implements View.OnClickListener{
 
     }
 
-    private void registerFraisProcess(String motif, String trajet, String trajetKM, String trajetPeage, String repas, String heberg){
+    private void registerFrais(String trajet, String km, String peage, String repas, String heberg, String motif, String cout){
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
@@ -96,12 +99,13 @@ public class FraisFragment extends Fragment implements View.OnClickListener{
         RequestInterface requestInterface = retrofit.create(RequestInterface.class);
 
         Frais frais = new Frais();
-        frais.setMotif(motif);
         frais.setTrajet(trajet);
-        frais.setTrajetKM(trajetKM);
-        frais.setTrajetPeage(trajetPeage);
+        frais.setKm(km);
+        frais.setPeage(peage);
         frais.setRepas(repas);
         frais.setHeberg(heberg);
+        frais.setMotif(motif);
+        frais.setCout(cout);
 
         ServerRequest request = new ServerRequest();
         request.setOperation(Constants.REGISTERFRAIS_OPERATION);
