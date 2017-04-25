@@ -24,7 +24,7 @@
         <EditText
             android:hint="@string/frais_trajet"
             android:id="@+id/et_trajet"
-            android:drawableRight="@drawable/ic_person"
+            android:drawableRight="@mipmap/ic_trajet"
             android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
