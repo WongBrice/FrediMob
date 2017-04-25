@@ -2,7 +2,7 @@ package fr.m2l.sio.fredimob.Classes;
 
 public class Constants {
 
-    public static final String BASE_URL = "http://192.168.1.18/";
+    public static final String BASE_URL = "http://10.0.3.109/";
     public static final String REGISTER_OPERATION = "register";
 
     public static final String REGISTERFRAIS_OPERATION = "registerFrais";

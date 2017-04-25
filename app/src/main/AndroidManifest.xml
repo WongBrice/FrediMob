@@ -22,6 +22,12 @@
             android:name=".Classes.DialogChangePassword"
             android:label="@string/title_activity_dialog_change_password"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <fragment
+            android:name=".Fragments.FraisFragment"
+            android:label="@string/title_activity_frais_details"
+            android:theme="@style/AppTheme.NoActionBar"></fragment>
+
         <activity
             android:name=".Activities.FraisDetailsActivity"
             android:label="@string/title_activity_frais_details"

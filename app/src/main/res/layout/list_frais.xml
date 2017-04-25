@@ -3,11 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/fredi_background">
 
     <TextView
         android:id="@+id/Id"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorBlank"
         android:textSize="17dp"
 
         android:text="@string/fraisId"
@@ -21,7 +22,7 @@
     <TextView
         android:id="@+id/Trajet"
         android:textSize="16dp"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorBlank"
 
 
         android:text="@string/fraisTrajet"
@@ -35,7 +36,7 @@
     ///////////////////
     <TextView
         android:id="@+id/Km"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorBlank"
         android:textSize="17dp"
 
         android:text="@string/fraisKm"
@@ -49,7 +50,7 @@
     // /////////////////
     <TextView
         android:id="@+id/Peage"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorBlank"
 
         android:textSize="17dp"
         android:text="@string/fraisPeage"
@@ -63,7 +64,7 @@
     //////////////////
     <TextView
         android:id="@+id/Repas"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorBlank"
 
         android:textSize="17dp"
         android:text="@string/fraisRepas"
@@ -77,7 +78,7 @@
     //////////////////////
     <TextView
         android:id="@+id/Heberg"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorBlank"
 
         android:textSize="17dp"
         android:text="@string/fraisHeberg"
@@ -91,7 +92,7 @@
     //////////////////////
     <TextView
         android:id="@+id/Motif"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorBlank"
 
         android:textSize="17dp"
         android:text="@string/fraisMotif"
@@ -106,7 +107,7 @@
     <TextView
         android:id="@+id/Cout"
         android:text="@string/fraisCout"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorBlank"
         android:textSize="17dp"
 
         android:layout_width="match_parent"

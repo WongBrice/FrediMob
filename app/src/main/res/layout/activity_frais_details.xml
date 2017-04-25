@@ -4,6 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fredi_background"
     tools:context="fr.m2l.sio.fredimob.Activities.FraisDetailsActivity">
 
     <ListView
