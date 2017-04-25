@@ -29,8 +29,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RegisterFragment extends Fragment implements View.OnClickListener{
 
     private AppCompatButton btn_register;
-    private EditText et_firstName, et_lastName, et_birthdate, et_address, et_city, et_postalCode, et_phone, et_licence, et_email,et_password;
-    private Spinner sp_ligue, sp_type;
+    private EditText et_name, et_email,et_password;
     private TextView tv_login;
     private ProgressBar progress;
 
@@ -46,16 +45,8 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
 
         btn_register = (AppCompatButton)view.findViewById(R.id.btn_register);
         tv_login = (TextView)view.findViewById(R.id.tv_login);
-        et_firstName = (EditText)view.findViewById(R.id.et_firstName);
-        et_lastName = (EditText)view.findViewById(R.id.et_lastName);
-        et_birthdate = (EditText)view.findViewById(R.id.et_birthdate);
-        et_address = (EditText)view.findViewById(R.id.et_address);
-        et_city = (EditText)view.findViewById(R.id.et_city);
-        et_postalCode = (EditText)view.findViewById(R.id.et_postalCode);
-        et_phone = (EditText)view.findViewById(R.id.et_phone);
-        et_licence = (EditText)view.findViewById(R.id.et_licence);
-        sp_ligue = (Spinner)view.findViewById(R.id.sp_ligue);
-        sp_type = (Spinner)view.findViewById(R.id.sp_type);
+        et_name = (EditText)view.findViewById(R.id.et_name);
+
         et_email = (EditText)view.findViewById(R.id.et_email);
         et_password = (EditText)view.findViewById(R.id.et_password);
 
@@ -75,13 +66,14 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
 
             case R.id.btn_register:
 
+                String name = et_name.getText().toString();
                 String email = et_email.getText().toString();
                 String password = et_password.getText().toString();
 
                 if(!email.isEmpty() && !password.isEmpty()) {
 
                     progress.setVisibility(View.VISIBLE);
-                    registerProcess(email, password);
+                    registerProcess(name, email, password);
 
                 } else {
 
@@ -93,7 +85,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
 
     }
 
-    private void registerProcess(String email,String password){
+    private void registerProcess(String name, String email,String password){
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
@@ -103,6 +95,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
         RequestInterface requestInterface = retrofit.create(RequestInterface.class);
 
         User user = new User();
+        user.setName(name);
         user.setEmail(email);
         user.setPassword(password);
 

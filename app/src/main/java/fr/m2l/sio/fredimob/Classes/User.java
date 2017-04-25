@@ -23,22 +23,18 @@ public class User {
     protected String old_password;
     protected String new_password;
 
-    public String getUsername() {
-        return username;
-    }
+
     public String getName() {
         return name;
     }
-    public String getBirthdate() {
-        return birthdate;
-    }
+
     public String getEmail() { return email; }
 
     public String getId() {
         return id;
     }
 
-    public void setUsername(String username){this.username = username;}
+
     public void setName(String name) {
         this.name = name;
     }

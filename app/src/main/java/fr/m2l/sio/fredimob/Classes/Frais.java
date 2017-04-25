@@ -6,22 +6,25 @@ package fr.m2l.sio.fredimob.Classes;
 
 public class Frais {
 
-    private String motif;
+    private String id;
     private String trajet;
-    private String trajetKM;
-    private String trajetPeage;
+    private String km;
+    private String peage;
     private String repas;
     private String heberg;
+    private String motif;
+    private String cout;
 
-    public String getMotif() { return motif; }
+
+    public String getId() {
+        return id;
+    }
     public String getTrajet() {
         return trajet;
     }
-    public String getTrajetKM() {
-        return trajetKM;
-    }
-    public String getTrajetPeage() {
-        return trajetPeage;
+    public String getKm() { return km; }
+    public String getPeage() {
+        return peage;
     }
     public String getRepas() {
         return repas;
@@ -29,20 +32,25 @@ public class Frais {
     public String getHeberg() {
         return heberg;
     }
+    public String getMotif() {
+        return motif;
+    }
+    public String getCout() { return cout; }
 
-    public void setMotif(String motif) { this.motif = motif; }
+
+
     public void setTrajet(String trajet) { this.trajet = trajet; }
-    public void setTrajetKM(String trajetKM) {
-        this.trajetKM = trajetKM;
+    public void setKm(String km) { this.km = km; }
+    public void setPeage(String peage) {
+        this.peage = peage;
     }
-    public void setTrajetPeage(String trajetPeage) {
-        this.trajetPeage = trajetPeage;
-    }
-    public void setRepas(String repas) {
-        this.repas = repas;
-    }
+    public void setRepas(String repas) { this.repas = repas; }
     public void setHeberg(String heberg) {
         this.heberg = heberg;
+    }
+    public void setMotif(String motif) { this.motif = motif; }
+    public void setCout(String cout) {
+        this.cout = cout;
     }
 
 }

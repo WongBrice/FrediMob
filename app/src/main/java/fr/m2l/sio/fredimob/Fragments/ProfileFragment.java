@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -17,12 +18,15 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import fr.m2l.sio.fredimob.Activities.FraisDetailsActivity;
 import fr.m2l.sio.fredimob.Classes.Constants;
 import fr.m2l.sio.fredimob.Classes.ServerRequest;
 import fr.m2l.sio.fredimob.Classes.ServerResponse;
 import fr.m2l.sio.fredimob.Classes.User;
 import fr.m2l.sio.fredimob.Interface.RequestInterface;
 import fr.m2l.sio.fredimob.R;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
@@ -63,9 +67,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         btn_change_password = (AppCompatButton) view.findViewById(R.id.btn_chg_password);
         btn_logout = (AppCompatButton) view.findViewById(R.id.btn_logout);
         btn_frais.setOnClickListener(this);
+        btn_fraisDetails.setOnClickListener(this);
         btn_change_password.setOnClickListener(this);
         btn_logout.setOnClickListener(this);
-
     }
 
     private void showDialog() {
@@ -80,6 +84,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         builder.setView(view);
         builder.setTitle("Changer mot de passe");
         builder.setPositiveButton("Changer mot de passe", new DialogInterface.OnClickListener() {
+
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -135,7 +140,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         SharedPreferences.Editor editor = pref.edit();
         editor.putBoolean(Constants.IS_LOGGED_IN, false);
         editor.putString(Constants.EMAIL, "");
-        editor.putString(Constants.USERNAME, "");
+        editor.putString(Constants.NAME, "");
         editor.putString(Constants.ID, "");
         editor.apply();
         goToLogin();
@@ -157,11 +162,15 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     }
 
     private void goToFraisDetails(){
-        Fragment fraisDetails = new FraisDetailsFragment();
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment_frame, fraisDetails);
-        ft.commit();
+
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
+
+        Intent intent = new Intent (getActivity(), FraisDetailsActivity.class);
+        startActivity(intent);
     }
+
 
     private void changePasswordProcess(String email, String old_password, String new_password) {
 

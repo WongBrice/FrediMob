@@ -106,6 +106,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
         User user = new User();
         user.setEmail(email);
         user.setPassword(password);
+
+
         ServerRequest request = new ServerRequest();
         request.setOperation(Constants.LOGIN_OPERATION);
         request.setUser(user);

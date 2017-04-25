@@ -3,6 +3,7 @@ package fr.m2l.sio.fredimob.Fragments;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.AppCompatButton;
@@ -12,15 +13,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
+
 
 import fr.m2l.sio.fredimob.Classes.Constants;
 import fr.m2l.sio.fredimob.Classes.Frais;
 import fr.m2l.sio.fredimob.Classes.ServerRequest;
 import fr.m2l.sio.fredimob.Classes.ServerResponse;
-import fr.m2l.sio.fredimob.Classes.User;
+
 import fr.m2l.sio.fredimob.Interface.RequestInterface;
 import fr.m2l.sio.fredimob.R;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
@@ -41,7 +44,6 @@ public class FraisFragment extends Fragment implements View.OnClickListener{
     }
 
     private void initViews(View view){
-
         btn_register = (AppCompatButton)view.findViewById(R.id.btn_register);
 
         et_trajet = (EditText) view.findViewById(R.id.et_trajet);
@@ -64,6 +66,11 @@ public class FraisFragment extends Fragment implements View.OnClickListener{
 
 
             case R.id.btn_register:
+
+                HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+                interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+                OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
+
 
 
                 String trajet = et_trajet.getText().toString();
@@ -90,6 +97,7 @@ public class FraisFragment extends Fragment implements View.OnClickListener{
     }
 
     private void registerFrais(String trajet, String km, String peage, String repas, String heberg, String motif, String cout){
+
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
@@ -131,5 +139,6 @@ public class FraisFragment extends Fragment implements View.OnClickListener{
             }
         });
     }
+
 
 }
