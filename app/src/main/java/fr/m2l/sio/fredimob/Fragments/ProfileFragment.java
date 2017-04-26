@@ -121,6 +121,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_fraisDetails:
+                HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+                interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+                OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
+
                 goToFraisDetails();
                 break;
 
@@ -162,7 +166,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     }
 
     private void goToFraisDetails(){
-
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();

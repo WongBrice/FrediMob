@@ -21,6 +21,7 @@
         <EditText
             android:hint="@string/user_firstName"
             android:id="@+id/et_name"
+            android:textColor="@color/colorBlank"
             android:drawableRight="@mipmap/ic_person"
             android:inputType="textPersonName"
             android:layout_width="match_parent"
@@ -43,6 +44,7 @@
         <EditText
             android:hint="Email"
             android:id="@+id/et_email"
+            android:textColor="@color/colorBlank"
             android:drawableRight="@mipmap/ic_email"
             android:inputType="textEmailAddress"
             android:layout_width="match_parent"
@@ -59,6 +61,7 @@
         <EditText
             android:hint="@string/app_password"
             android:id="@+id/et_password"
+            android:textColor="@color/colorBlank"
             android:drawableRight="@mipmap/ic_password"
             android:inputType="textPassword"
             android:layout_marginLeft="40dp"

@@ -11,7 +11,7 @@
         android:id="@+id/tv_name"
         android:layout_marginTop="20dp"
         android:textSize="22sp"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorBlank"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -28,7 +28,7 @@
         android:id="@+id/btn_frais"
         android:layout_marginTop="40dp"
         android:text="@string/app_add_frais"
-        android:background="@color/colorGreen"
+        android:background="@color/colorBlack"
         android:textColor="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -39,7 +39,7 @@
         android:id="@+id/btn_fraisDetails"
         android:layout_marginTop="40dp"
         android:text="@string/app_fraisDetail"
-        android:background="@color/colorGreen"
+        android:background="@color/colorBlack"
         android:textColor="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -50,7 +50,7 @@
         android:id="@+id/btn_chg_password"
         android:layout_marginTop="40dp"
         android:text="@string/app_changePassword"
-        android:background="@color/colorGreen"
+        android:background="@color/colorBlack"
         android:textColor="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -61,7 +61,7 @@
         android:id="@+id/btn_logout"
         android:layout_marginTop="20dp"
         android:text="@string/app_logout"
-        android:background="@color/colorGreen"
+        android:background="@color/colorBlack"
         android:textColor="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

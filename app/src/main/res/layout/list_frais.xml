@@ -7,19 +7,6 @@
     android:background="@drawable/fredi_background">
 
     <TextView
-        android:id="@+id/Id"
-        android:textColor="@color/colorBlank"
-        android:textSize="17dp"
-
-        android:text="@string/fraisId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/id"
-        android:textSize="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <TextView
         android:id="@+id/Trajet"
         android:textSize="16dp"
         android:textColor="@color/colorBlank"

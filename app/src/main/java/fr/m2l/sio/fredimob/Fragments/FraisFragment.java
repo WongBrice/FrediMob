@@ -58,7 +58,7 @@ public class FraisFragment extends Fragment implements View.OnClickListener{
 
         btn_register.setOnClickListener(this);
     }
-
+    
     @Override
     public void onClick(View v) {
 

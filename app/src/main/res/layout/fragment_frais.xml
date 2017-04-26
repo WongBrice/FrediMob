@@ -25,6 +25,7 @@
             android:hint="@string/frais_trajet"
             android:id="@+id/et_trajet"
             android:drawableRight="@mipmap/ic_trajet"
+            android:textColor="@color/colorBlank"
             android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -42,7 +43,8 @@
         <EditText
             android:hint="@string/frais_trajetKM"
             android:id="@+id/et_km"
-            android:drawableRight="@drawable/ic_email"
+            android:drawableRight="@mipmap/ic_km"
+            android:textColor="@color/colorBlank"
             android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -60,7 +62,8 @@
         <EditText
             android:hint="@string/frais_trajetPeage"
             android:id="@+id/et_peage"
-            android:drawableRight="@drawable/ic_key"
+            android:drawableRight="@mipmap/ic_peage"
+            android:textColor="@color/colorBlank"
             android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -78,7 +81,8 @@
         <EditText
             android:hint="@string/frais_repas"
             android:id="@+id/et_repas"
-            android:drawableRight="@drawable/ic_key"
+            android:drawableRight="@mipmap/ic_repas"
+            android:textColor="@color/colorBlank"
             android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -96,7 +100,8 @@
         <EditText
             android:hint="@string/frais_heberg"
             android:id="@+id/et_heberg"
-            android:drawableRight="@drawable/ic_key"
+            android:drawableRight="@mipmap/ic_hebergement"
+            android:textColor="@color/colorBlank"
             android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -114,7 +119,8 @@
         <EditText
             android:hint="@string/frais_motif"
             android:id="@+id/et_motif"
-            android:drawableRight="@drawable/ic_person"
+            android:drawableRight="@mipmap/ic_motif"
+            android:textColor="@color/colorBlank"
             android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -132,7 +138,8 @@
         <EditText
             android:hint="@string/frais_cout"
             android:id="@+id/et_cout"
-            android:drawableRight="@drawable/ic_person"
+            android:drawableRight="@mipmap/ic_cout"
+            android:textColor="@color/colorBlank"
             android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

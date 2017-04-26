@@ -24,13 +24,12 @@ import fr.m2l.sio.fredimob.model.AndroidVersion;
 public class FraisDetailsActivity extends AppCompatActivity implements LoadJSONTask.Listener, AdapterView.OnItemClickListener {
 
     private ListView mListView;
-    private TextView Id, Trajet, Km, Peage, Repas, Heberg, Motif, Cout;
+    private TextView Trajet, Km, Peage, Repas, Heberg, Motif, Cout;
     public static final String URL = "http://10.0.3.109/m2lmobile/frais.php";
 
     private List<HashMap<String, String>> mAndroidMapList = new ArrayList<>();
 
 
-    private static final String KEY_ID = "id";
     private static final String KEY_TRAJET = "trajet";
     private static final String KEY_KM = "km";
     private static final String KEY_PEAGE = "peage";
@@ -44,12 +43,12 @@ public class FraisDetailsActivity extends AppCompatActivity implements LoadJSONT
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_frais_details);
 
-        Id = (TextView) findViewById(R.id.Id);
+
         Trajet = (TextView) findViewById(R.id.Trajet);
         Km = (TextView) findViewById(R.id.Km);
         Peage = (TextView) findViewById(R.id.Peage);
-        Repas = (TextView) findViewById(R.id.Trajet);
-        Heberg = (TextView) findViewById(R.id.Trajet);
+        Repas = (TextView) findViewById(R.id.Repas);
+        Heberg = (TextView) findViewById(R.id.Heberg);
         Motif = (TextView) findViewById(R.id.Motif);
         Cout = (TextView) findViewById(R.id.Cout);
 
@@ -94,7 +93,7 @@ public class FraisDetailsActivity extends AppCompatActivity implements LoadJSONT
     private void loadListView() {
 
         ListAdapter adapter = new SimpleAdapter(FraisDetailsActivity.this, mAndroidMapList, R.layout.list_frais,
-                new String[] { KEY_TRAJET, KEY_KM, KEY_PEAGE, KEY_REPAS, KEY_HEBERG, KEY_MOTIF, KEY_TRAJET },
+                new String[] { KEY_TRAJET, KEY_KM, KEY_PEAGE, KEY_REPAS, KEY_HEBERG, KEY_MOTIF, KEY_COUT },
                 new int[] { R.id.trajet,R.id.km, R.id.peage, R.id.repas, R.id.heberg, R.id.motif, R.id.cout });
 
         mListView.setAdapter(adapter);
