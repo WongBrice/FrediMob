@@ -18,6 +18,8 @@
     <android.support.design.widget.TextInputLayout
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -44,6 +46,8 @@
             android:id="@+id/et_password"
             android:drawableRight="@mipmap/ic_password"
             android:textColor="@color/colorBlank"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -55,6 +59,8 @@
         android:text="@string/app_connect"
         android:background="@color/colorGreen"
         android:textColor="@android:color/white"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

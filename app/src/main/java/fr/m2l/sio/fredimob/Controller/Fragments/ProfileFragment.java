@@ -1,11 +1,10 @@
-package fr.m2l.sio.fredimob.Fragments;
+package fr.m2l.sio.fredimob.Controller.Fragments;
 
 
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -18,15 +17,12 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import fr.m2l.sio.fredimob.Activities.FraisDetailsActivity;
-import fr.m2l.sio.fredimob.Classes.Constants;
-import fr.m2l.sio.fredimob.Classes.ServerRequest;
-import fr.m2l.sio.fredimob.Classes.ServerResponse;
-import fr.m2l.sio.fredimob.Classes.User;
-import fr.m2l.sio.fredimob.Interface.RequestInterface;
+import fr.m2l.sio.fredimob.Controller.Connection.Constants;
+import fr.m2l.sio.fredimob.Controller.Connection.ServerRequest;
+import fr.m2l.sio.fredimob.Controller.Connection.ServerResponse;
+import fr.m2l.sio.fredimob.model.User;
+import fr.m2l.sio.fredimob.Controller.Connection.RequestInterface;
 import fr.m2l.sio.fredimob.R;
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
@@ -121,10 +117,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_fraisDetails:
-                HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-                interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-                OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
-
                 goToFraisDetails();
                 break;
 
@@ -166,12 +158,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     }
 
     private void goToFraisDetails(){
-        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
-
-        Intent intent = new Intent (getActivity(), FraisDetailsActivity.class);
-        startActivity(intent);
+        Fragment frais = new FraisDetailsFragment();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.fragment_frame, frais);
+        ft.commit();
     }
 
 

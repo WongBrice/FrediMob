@@ -5,14 +5,14 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="@drawable/fredi_background"
-    tools:context="fr.m2l.sio.fredimob.Activities.MainActivity">
+    tools:context=".Controller.Activities.MainActivity">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="fr.m2l.sio.fredimob.Activities.MainActivity">
+        tools:context=".Controller.Activities.MainActivity">
 
         <FrameLayout
             android:id="@+id/fragment_frame"

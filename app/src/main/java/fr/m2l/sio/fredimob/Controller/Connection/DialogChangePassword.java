@@ -1,4 +1,4 @@
-package fr.m2l.sio.fredimob.Classes;
+package fr.m2l.sio.fredimob.Controller.Connection;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;

@@ -1,9 +1,7 @@
-package fr.m2l.sio.fredimob.Interface;
+package fr.m2l.sio.fredimob.Controller.Connection;
 
 
 
-import fr.m2l.sio.fredimob.Classes.ServerRequest;
-import fr.m2l.sio.fredimob.Classes.ServerResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;

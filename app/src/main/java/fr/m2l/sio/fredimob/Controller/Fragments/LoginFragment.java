@@ -1,8 +1,9 @@
-package fr.m2l.sio.fredimob.Fragments;
+package fr.m2l.sio.fredimob.Controller.Fragments;
 
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.AppCompatButton;
@@ -12,68 +13,69 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
 import android.widget.TextView;
 
-import fr.m2l.sio.fredimob.Classes.Constants;
-import fr.m2l.sio.fredimob.Classes.ServerRequest;
-import fr.m2l.sio.fredimob.Classes.ServerResponse;
-import fr.m2l.sio.fredimob.Classes.User;
-import fr.m2l.sio.fredimob.Interface.RequestInterface;
+import fr.m2l.sio.fredimob.Controller.Connection.Constants;
+import fr.m2l.sio.fredimob.Controller.Connection.ServerRequest;
+import fr.m2l.sio.fredimob.Controller.Connection.ServerResponse;
+import fr.m2l.sio.fredimob.model.User;
+import fr.m2l.sio.fredimob.Controller.Connection.RequestInterface;
 import fr.m2l.sio.fredimob.R;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RegisterFragment extends Fragment implements View.OnClickListener{
+public class LoginFragment extends Fragment implements View.OnClickListener{
 
-    private AppCompatButton btn_register;
-    private EditText et_name, et_email,et_password;
-    private TextView tv_login;
+    private AppCompatButton btn_login;
+    private EditText et_email,et_password;
+    private TextView tv_register;
     private ProgressBar progress;
+    private SharedPreferences pref;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_register,container,false);
+        View view = inflater.inflate(R.layout.fragment_login,container,false);
         initViews(view);
         return view;
     }
 
     private void initViews(View view){
 
-        btn_register = (AppCompatButton)view.findViewById(R.id.btn_register);
-        tv_login = (TextView)view.findViewById(R.id.tv_login);
-        et_name = (EditText)view.findViewById(R.id.et_name);
+        pref = getActivity().getPreferences(0);
 
+        btn_login = (AppCompatButton)view.findViewById(R.id.btn_login);
+        tv_register = (TextView)view.findViewById(R.id.tv_register);
         et_email = (EditText)view.findViewById(R.id.et_email);
         et_password = (EditText)view.findViewById(R.id.et_password);
 
         progress = (ProgressBar)view.findViewById(R.id.progress);
 
-        btn_register.setOnClickListener(this);
-        tv_login.setOnClickListener(this);
+        btn_login.setOnClickListener(this);
+        tv_register.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
 
         switch (v.getId()){
-            case R.id.tv_login:
-                goToLogin();
+
+            case R.id.tv_register:
+                goToRegister();
                 break;
 
-            case R.id.btn_register:
-
-                String name = et_name.getText().toString();
+            case R.id.btn_login:
                 String email = et_email.getText().toString();
                 String password = et_password.getText().toString();
 
                 if(!email.isEmpty() && !password.isEmpty()) {
 
                     progress.setVisibility(View.VISIBLE);
-                    registerProcess(name, email, password);
+                    loginProcess(email,password);
 
                 } else {
 
@@ -82,25 +84,27 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
                 break;
 
         }
-
     }
-
-    private void registerProcess(String name, String email,String password){
+    private void loginProcess(String email,String password){
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
                 .build();
 
         RequestInterface requestInterface = retrofit.create(RequestInterface.class);
 
         User user = new User();
-        user.setName(name);
         user.setEmail(email);
         user.setPassword(password);
 
+
         ServerRequest request = new ServerRequest();
-        request.setOperation(Constants.REGISTER_OPERATION);
+        request.setOperation(Constants.LOGIN_OPERATION);
         request.setUser(user);
         Call<ServerResponse> response = requestInterface.operation(request);
 
@@ -110,6 +114,17 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
 
                 ServerResponse resp = response.body();
                 Snackbar.make(getView(), resp.getMessage(), Snackbar.LENGTH_LONG).show();
+
+                if(resp.getResult().equals(Constants.SUCCESS)){
+                    SharedPreferences.Editor editor = pref.edit();
+                    editor.putBoolean(Constants.IS_LOGGED_IN,true);
+                    editor.putString(Constants.EMAIL,resp.getUser().getEmail());
+                    editor.putString(Constants.NAME,resp.getUser().getName());
+                    editor.putString(Constants.ID,resp.getUser().getId());
+                    editor.apply();
+                    goToProfile();
+
+                }
                 progress.setVisibility(View.INVISIBLE);
             }
 
@@ -124,11 +139,19 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
         });
     }
 
-    private void goToLogin(){
+    private void goToRegister(){
 
-        Fragment login = new LoginFragment();
+        Fragment register = new RegisterFragment();
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment_frame,login);
+        ft.replace(R.id.fragment_frame,register);
+        ft.commit();
+    }
+
+    private void goToProfile(){
+
+        Fragment profile = new ProfileFragment();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.fragment_frame,profile);
         ft.commit();
     }
 }

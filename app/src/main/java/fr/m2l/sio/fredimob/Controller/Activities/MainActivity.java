@@ -1,4 +1,4 @@
-package fr.m2l.sio.fredimob.Activities;
+package fr.m2l.sio.fredimob.Controller.Activities;
 
 
 import android.app.Fragment;
@@ -7,9 +7,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import fr.m2l.sio.fredimob.Classes.Constants;
-import fr.m2l.sio.fredimob.Fragments.LoginFragment;
-import fr.m2l.sio.fredimob.Fragments.ProfileFragment;
+import fr.m2l.sio.fredimob.Controller.Connection.Constants;
+import fr.m2l.sio.fredimob.Controller.Fragments.LoginFragment;
+import fr.m2l.sio.fredimob.Controller.Fragments.ProfileFragment;
 import fr.m2l.sio.fredimob.R;
 
 public class MainActivity extends AppCompatActivity {

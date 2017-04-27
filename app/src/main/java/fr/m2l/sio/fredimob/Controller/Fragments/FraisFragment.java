@@ -1,9 +1,7 @@
-package fr.m2l.sio.fredimob.Fragments;
+package fr.m2l.sio.fredimob.Controller.Fragments;
 
 
 import android.app.Fragment;
-import android.app.FragmentTransaction;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.AppCompatButton;
@@ -15,12 +13,12 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 
 
-import fr.m2l.sio.fredimob.Classes.Constants;
-import fr.m2l.sio.fredimob.Classes.Frais;
-import fr.m2l.sio.fredimob.Classes.ServerRequest;
-import fr.m2l.sio.fredimob.Classes.ServerResponse;
+import fr.m2l.sio.fredimob.Controller.Connection.Constants;
+import fr.m2l.sio.fredimob.model.Frais;
+import fr.m2l.sio.fredimob.Controller.Connection.ServerRequest;
+import fr.m2l.sio.fredimob.Controller.Connection.ServerResponse;
 
-import fr.m2l.sio.fredimob.Interface.RequestInterface;
+import fr.m2l.sio.fredimob.Controller.Connection.RequestInterface;
 import fr.m2l.sio.fredimob.R;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

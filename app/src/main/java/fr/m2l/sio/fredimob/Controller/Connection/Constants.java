@@ -1,4 +1,4 @@
-package fr.m2l.sio.fredimob.Classes;
+package fr.m2l.sio.fredimob.Controller.Connection;
 
 public class Constants {
 

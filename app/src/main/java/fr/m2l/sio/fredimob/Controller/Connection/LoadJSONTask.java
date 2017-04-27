@@ -1,4 +1,4 @@
-package fr.m2l.sio.fredimob.Interface;
+package fr.m2l.sio.fredimob.Controller.Connection;
 
 import android.os.AsyncTask;
 
@@ -12,8 +12,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
-import fr.m2l.sio.fredimob.model.AndroidVersion;
-import fr.m2l.sio.fredimob.model.Response;
+import fr.m2l.sio.fredimob.model.Frais;
 
 public class LoadJSONTask extends AsyncTask<String, Void, Response> {
 
@@ -24,7 +23,7 @@ public class LoadJSONTask extends AsyncTask<String, Void, Response> {
 
     public interface Listener {
 
-        void onLoaded(List<AndroidVersion> androidList);
+        void onLoaded(List<Frais> fraisList);
 
         void onError();
     }
@@ -53,7 +52,7 @@ public class LoadJSONTask extends AsyncTask<String, Void, Response> {
 
         if (response != null) {
 
-            mListener.onLoaded(response.getAndroid());
+            mListener.onLoaded(response.getFrais());
 
         } else {
 

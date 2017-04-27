@@ -1,4 +1,7 @@
-package fr.m2l.sio.fredimob.Classes;
+package fr.m2l.sio.fredimob.Controller.Connection;
+
+import fr.m2l.sio.fredimob.model.Frais;
+import fr.m2l.sio.fredimob.model.User;
 
 /**
  * Created by Alf on 04/04/2017.

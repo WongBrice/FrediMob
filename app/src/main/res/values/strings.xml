@@ -61,4 +61,5 @@
         <item>Vos notes de frais</item>
     </string-array>
     <string name="title_activity_frais_details">FraisDetailsActivity</string>
+    <string name="fraisCreatedAt">Créée le :</string>
 </resources>

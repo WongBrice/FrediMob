@@ -1,4 +1,4 @@
-package fr.m2l.sio.fredimob.Classes;
+package fr.m2l.sio.fredimob.model;
 
 /**
  * Created by Alf on 04/04/2017.
