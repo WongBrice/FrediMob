@@ -5,12 +5,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_dialog_change_password">DialogChangePassword</string>
     <string name="app_nom">FREDI</string>
-    <string name="fraisDate">Date</string>
-    <string name="fraisMotif">Motif</string>
-    <string name="fraisTrajet">Départ /  Arrivée</string>
-    <string name="fraisTrajetKM">KM Parcourus</string>
-    <string name="fraisTrajetPeage">Nombre de péages</string>
-    <string name="fraisRepas">Nombre de repas</string>
+
+
     <string name="app_Frais">Notes de frais</string>
     <string name="app_add_frais">Ajouter note de frais</string>
     <string name="register">Pas encore inscrit ? Inscrivez-vous !</string>
@@ -22,12 +18,6 @@
     <string name="app_newPassword">Nouveau mot de passe</string>
     <string name="user_name">Votre nom</string>
     <string name="app_alreadyRegister">Déjà inscrit ? Connectez-vous</string>
-    <string name="frais_trajet">Départ / Arrivée</string>
-    <string name="frais_trajetKM">KM Parcourus</string>
-    <string name="frais_trajetPeage">Nombre de péages</string>
-    <string name="frais_repas">Repas</string>
-    <string name="frais_heberg">Hébergement</string>
-    <string name="frais_motif">Motif</string>
     <string name="app_fraisDetail">Vos notes de frais</string>
     <string name="user_firstName">Votre prénom</string>
     <string name="user_birthdate">Date de naissance</string>
@@ -36,12 +26,16 @@
     <string name="user_postalCode">Code postal</string>
     <string name="user_phone">Téléphone</string>
     <string name="user_licence">Numéro de licence</string>
-    <string name="frais_cout">Coût</string>
+
     <string name="fraisCout">Coût</string>
+    <string name="fraisMotif">Motif</string>
+    <string name="fraisRepas">Frais de repas</string>
     <string name="fraisHeberg">Frais hébergement</string>
     <string name="fraisPeage">Frais de péages</string>
+    <string name="fraisTrajet">Départ / Arrivée</string>
     <string name="fraisKm">KM Parcourus :</string>
     <string name="fraisId">Numéro de notes de frais :</string>
+
 
     <string-array name="user_ligue">
         <item>Choisissez votre ligue</item>
@@ -62,4 +56,5 @@
     </string-array>
     <string name="title_activity_frais_details">FraisDetailsActivity</string>
     <string name="fraisCreatedAt">Créée le :</string>
+    <string name="fraisValidate">Validation par le trésorier :</string>
 </resources>

@@ -8,6 +8,7 @@ public class User {
 
     protected String id;
     protected String name;
+    protected String first_name;
     protected String last_name;
     protected String birthdate;
     protected String address;
@@ -27,7 +28,7 @@ public class User {
     public String getName() {
         return name;
     }
-
+    public String getFirstName() { return first_name; }
     public String getEmail() { return email; }
 
     public String getId() {
@@ -38,6 +39,7 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
+    public void setFirstName(String first_name) { this.first_name = first_name;}
     public void setLastName(String last_name) {
         this.last_name = last_name;
     }

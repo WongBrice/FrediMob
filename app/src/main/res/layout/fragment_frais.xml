@@ -21,7 +21,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:hint="@string/frais_trajet"
+            android:hint="@string/fraisTrajet"
             android:id="@+id/et_trajet"
             android:drawableRight="@mipmap/ic_trajet"
             android:textColor="@color/colorBlank"
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:hint="@string/frais_trajetKM"
+            android:hint="@string/fraisKm"
             android:id="@+id/et_km"
             android:drawableRight="@mipmap/ic_km"
             android:textColor="@color/colorBlank"
@@ -59,7 +59,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:hint="@string/frais_trajetPeage"
+            android:hint="@string/fraisPeage"
             android:id="@+id/et_peage"
             android:drawableRight="@mipmap/ic_peage"
             android:textColor="@color/colorBlank"
@@ -78,7 +78,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:hint="@string/frais_repas"
+            android:hint="@string/fraisRepas"
             android:id="@+id/et_repas"
             android:drawableRight="@mipmap/ic_repas"
             android:textColor="@color/colorBlank"
@@ -97,7 +97,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:hint="@string/frais_heberg"
+            android:hint="@string/fraisHeberg"
             android:id="@+id/et_heberg"
             android:drawableRight="@mipmap/ic_hebergement"
             android:textColor="@color/colorBlank"
@@ -116,7 +116,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:hint="@string/frais_motif"
+            android:hint="@string/fraisMotif"
             android:id="@+id/et_motif"
             android:drawableRight="@mipmap/ic_motif"
             android:textColor="@color/colorBlank"
@@ -135,7 +135,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:hint="@string/frais_cout"
+            android:hint="@string/fraisCout"
             android:id="@+id/et_cout"
             android:drawableRight="@mipmap/ic_cout"
             android:textColor="@color/colorBlank"

@@ -15,6 +15,7 @@ public class Frais {
     private String motif;
     private String cout;
     private String createdAt;
+    private String validate;
 
     public String getId() {
         return id;
@@ -37,10 +38,9 @@ public class Frais {
     public String getMotif() {
         return motif;
     }
-    public String getCout() {
-        return cout;
-    }
+    public String getCout() { return cout; }
     public String getCreatedAt() { return createdAt; }
+    public String getValidate() { return validate; }
 
     public void setTrajet(String trajet) { this.trajet = trajet; }
     public void setKm(String km) { this.km = km; }
@@ -49,4 +49,5 @@ public class Frais {
     public void setHeberg(String heberg) { this.heberg = heberg; }
     public void setMotif(String motif) { this.motif = motif; }
     public void setCout(String cout) { this.cout = cout; }
+    public void setValidate(String validate) {this.validate = validate;}
 }
