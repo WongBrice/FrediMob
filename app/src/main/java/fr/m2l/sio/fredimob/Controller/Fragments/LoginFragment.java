@@ -32,7 +32,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
     private AppCompatButton btn_login;
     private EditText et_email,et_password;
-    private TextView tv_register;
     private ProgressBar progress;
     private SharedPreferences pref;
 
@@ -49,14 +48,12 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
         pref = getActivity().getPreferences(0);
 
         btn_login = (AppCompatButton)view.findViewById(R.id.btn_login);
-        tv_register = (TextView)view.findViewById(R.id.tv_register);
         et_email = (EditText)view.findViewById(R.id.et_email);
         et_password = (EditText)view.findViewById(R.id.et_password);
 
         progress = (ProgressBar)view.findViewById(R.id.progress);
 
         btn_login.setOnClickListener(this);
-        tv_register.setOnClickListener(this);
     }
 
     @Override
@@ -64,9 +61,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
         switch (v.getId()){
 
-            case R.id.tv_register:
-                goToRegister();
-                break;
 
             case R.id.btn_login:
                 String email = et_email.getText().toString();
@@ -137,14 +131,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
             }
         });
-    }
-
-    private void goToRegister(){
-
-        Fragment register = new RegisterFragment();
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment_frame,register);
-        ft.commit();
     }
 
     private void goToProfile(){

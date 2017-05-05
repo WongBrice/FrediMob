@@ -29,7 +29,7 @@ public class FraisDetailsFragment extends Fragment implements LoadJSONTask.Liste
     private ListView mListView;
     private TextView Trajet, Km, Peage, Repas, Heberg, Motif, Cout, CreatedAt, Validate;
     private SharedPreferences pref;
-    public static final String URL = "http://10.0.3.109/m2lmobile/frais.php";
+    public static final String URL = "http://10.0.3.109/fredimobyle/frais.php";
 
     private List<HashMap<String, String>> mAndroidMapList = new ArrayList<>();
 
@@ -42,7 +42,7 @@ public class FraisDetailsFragment extends Fragment implements LoadJSONTask.Liste
     private static final String KEY_MOTIF = "motif";
     private static final String KEY_COUT = "cout";
     private static final String KEY_CREATEDAT ="createdAt";
-    private static final String KEY_VALIDATE ="validate";
+
 
 
     @Override
@@ -66,7 +66,7 @@ public class FraisDetailsFragment extends Fragment implements LoadJSONTask.Liste
         Motif = (TextView) view.findViewById(R.id.Motif);
         Cout = (TextView) view.findViewById(R.id.Cout);
         CreatedAt = (TextView) view.findViewById(R.id.createdAt);
-        Validate = (TextView) view.findViewById(R.id.Validate);
+
 
 
         mListView = (ListView) view.findViewById(R.id.list_view);
@@ -89,7 +89,7 @@ public class FraisDetailsFragment extends Fragment implements LoadJSONTask.Liste
             map.put(KEY_MOTIF, frais.getMotif());
             map.put(KEY_COUT, frais.getCout() + " €");
             map.put(KEY_CREATEDAT, frais.getCreatedAt());
-            map.put(KEY_VALIDATE, frais.getValidate());
+
 
             mAndroidMapList.add(map);
         }
@@ -114,8 +114,8 @@ public class FraisDetailsFragment extends Fragment implements LoadJSONTask.Liste
     private void loadListView() {
 
         ListAdapter adapter = new SimpleAdapter(getActivity(), mAndroidMapList, R.layout.list_frais,
-                new String[] { KEY_TRAJET, KEY_KM, KEY_PEAGE, KEY_REPAS, KEY_HEBERG, KEY_MOTIF, KEY_COUT, KEY_CREATEDAT, KEY_VALIDATE },
-                new int[] { R.id.trajet,R.id.km, R.id.peage, R.id.repas, R.id.heberg, R.id.motif, R.id.cout, R.id.createdAt, R.id.validate });
+                new String[] { KEY_TRAJET, KEY_KM, KEY_PEAGE, KEY_REPAS, KEY_HEBERG, KEY_MOTIF, KEY_COUT, KEY_CREATEDAT },
+                new int[] { R.id.trajet,R.id.km, R.id.peage, R.id.repas, R.id.heberg, R.id.motif, R.id.cout, R.id.createdAt });
 
         mListView.setAdapter(adapter);
 
