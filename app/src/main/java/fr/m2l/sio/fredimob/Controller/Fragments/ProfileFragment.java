@@ -6,13 +6,19 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+
+
 import android.support.v7.widget.AppCompatButton;
+import android.text.Html;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -78,20 +84,25 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         tv_message = (TextView) view.findViewById(R.id.tv_message);
         progress = (ProgressBar) view.findViewById(R.id.progress);
         builder.setView(view);
-        builder.setTitle("Changer mot de passe");
-        builder.setPositiveButton("Changer mot de passe", new DialogInterface.OnClickListener() {
+
+        builder.setTitle(Html.fromHtml("<font color='#FF7F27'>Changer mot de passe</font>"));
+        builder.setPositiveButton(Html.fromHtml("<font color='#FF7F27'>Changer mot de passe</font>"), new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
             }
         });
-        builder.setNegativeButton("Quitter", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(Html.fromHtml("<font color='#FF7F27'>Annuler</font>"), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
             }
         });
+
+
+
+
         dialog = builder.create();
         dialog.show();
         dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
@@ -111,6 +122,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 }
             }
         });
+        Button nbutton = dialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+        nbutton.setBackgroundColor(Color.BLACK);
+        Button pbutton = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
+        pbutton.setBackgroundColor(Color.GREEN);
     }
 
     @Override
@@ -141,6 +156,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         editor.apply();
         goToLogin();
     }
+
 
     private void goToLogin() {
 

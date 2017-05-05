@@ -2,6 +2,7 @@ package fr.m2l.sio.fredimob.Controller.Fragments;
 
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.AppCompatButton;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 
 import fr.m2l.sio.fredimob.Controller.Connection.Constants;
@@ -31,6 +33,7 @@ public class FraisFragment extends Fragment implements View.OnClickListener{
 
     private AppCompatButton btn_register;
     private EditText et_trajet, et_km ,et_peage, et_repas, et_heberg, et_motif, et_cout;
+    private TextView tv_profile;
     private ProgressBar progress;
 
     @Override
@@ -51,9 +54,10 @@ public class FraisFragment extends Fragment implements View.OnClickListener{
         et_heberg = (EditText)view.findViewById(R.id.et_heberg);
         et_motif = (EditText) view.findViewById(R.id.et_motif);
         et_cout = (EditText) view.findViewById(R.id.et_cout);
-
+        tv_profile = (TextView) view.findViewById(R.id.tv_profile);
         progress = (ProgressBar)view.findViewById(R.id.progress);
 
+        tv_profile.setOnClickListener(this);
         btn_register.setOnClickListener(this);
     }
     
@@ -61,7 +65,9 @@ public class FraisFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
 
         switch (v.getId()){
-
+            case R.id.tv_profile:
+                goToProfile();
+                break;
 
             case R.id.btn_register:
 
@@ -136,6 +142,13 @@ public class FraisFragment extends Fragment implements View.OnClickListener{
 
             }
         });
+    }
+
+    private void goToProfile(){
+        Fragment profile = new ProfileFragment();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.fragment_frame, profile);
+        ft.commit();
     }
 
 

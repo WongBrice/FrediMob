@@ -1,6 +1,7 @@
 package fr.m2l.sio.fredimob.Controller.Fragments;
 
 
+import android.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -16,6 +17,8 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,11 +26,13 @@ import java.util.List;
 import fr.m2l.sio.fredimob.Controller.Connection.LoadJSONTask;
 import fr.m2l.sio.fredimob.R;
 import fr.m2l.sio.fredimob.model.Frais;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 
-public class FraisDetailsFragment extends Fragment implements LoadJSONTask.Listener, AdapterView.OnItemClickListener{
+public class FraisDetailsFragment extends Fragment implements LoadJSONTask.Listener, AdapterView.OnItemClickListener, View.OnClickListener{
 
     private ListView mListView;
-    private TextView Trajet, Km, Peage, Repas, Heberg, Motif, Cout, CreatedAt, Validate;
+    private TextView Trajet, Km, Peage, Repas, Heberg, Motif, Cout, CreatedAt, Validate, tv_profile;
     private SharedPreferences pref;
     public static final String URL = "http://10.0.3.109/fredimobyle/frais.php";
 
@@ -55,7 +60,6 @@ public class FraisDetailsFragment extends Fragment implements LoadJSONTask.Liste
 
     }
 
-
     private void initViews(View view) {
 
         Trajet = (TextView) view.findViewById(R.id.Trajet);
@@ -66,14 +70,18 @@ public class FraisDetailsFragment extends Fragment implements LoadJSONTask.Liste
         Motif = (TextView) view.findViewById(R.id.Motif);
         Cout = (TextView) view.findViewById(R.id.Cout);
         CreatedAt = (TextView) view.findViewById(R.id.createdAt);
+        tv_profile = (TextView) view.findViewById(R.id.tv_profile);
 
 
 
         mListView = (ListView) view.findViewById(R.id.list_view);
+        tv_profile.setOnClickListener(this);
         mListView.setOnItemClickListener(this);
         
         new LoadJSONTask(this).execute(URL);
     }
+
+
 
     @Override
     public void onLoaded(List<Frais> fraisList) {
@@ -105,6 +113,15 @@ public class FraisDetailsFragment extends Fragment implements LoadJSONTask.Liste
 
 
     @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.tv_profile:
+                goToProfile();
+                break;
+        }
+    }
+
+    @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
         Snackbar.make(getView(), mAndroidMapList.get(i).get(KEY_TRAJET), Snackbar.LENGTH_LONG).show();
@@ -118,6 +135,11 @@ public class FraisDetailsFragment extends Fragment implements LoadJSONTask.Liste
                 new int[] { R.id.trajet,R.id.km, R.id.peage, R.id.repas, R.id.heberg, R.id.motif, R.id.cout, R.id.createdAt });
 
         mListView.setAdapter(adapter);
-
+    }
+    private void goToProfile(){
+        Fragment profile = new ProfileFragment();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.fragment_frame, profile);
+        ft.commit();
     }
 }

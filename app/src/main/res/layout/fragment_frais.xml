@@ -163,5 +163,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:indeterminate="true" />
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:id="@+id/tv_profile"
+        android:textSize="18sp"
+        android:text="@string/goProfile"
+        android:textColor="@color/colorBlank"/>
 </LinearLayout>
 </ScrollView>

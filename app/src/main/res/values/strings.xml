@@ -57,4 +57,5 @@
     <string name="title_activity_frais_details">FraisDetailsActivity</string>
     <string name="fraisCreatedAt">Créée le :</string>
     <string name="fraisValidate">Validation par le trésorier :</string>
+    <string name="goProfile">Retourner sur le profil</string>
 </resources>
